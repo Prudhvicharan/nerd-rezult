@@ -1,0 +1,8 @@
+export { default as HeroSection } from "./HeroSection";
+export { default as KeyFeatures } from "./KeyFeatures";
+export { default as HowItWorks } from "./HowItWorks";
+export { default as ComparisonTable } from "./ComparisonTable";
+export { default as IndustriesGrid } from "./IndustriesGrid";
+export { default as PricingPlans } from "./PricingPlans";
+export { default as Testimonials } from "./Testimonials";
+export { default as CTASection } from "./CTASection";
