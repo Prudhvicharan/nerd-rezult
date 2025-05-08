@@ -1,50 +1,45 @@
 import React, { useState } from "react";
 import { ArrowLeft } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-
-// Import method selector and method components
-import MethodSelector from "./components/expert-application/MethodSelector";
-import ChatApplication from "./components/expert-application/methods/ChatApplication";
-import PortfolioApplication from "./components/expert-application/methods/PortfolioApplication";
-import VideoApplication from "./components/expert-application/methods/VideoApplication";
-import AudioApplication from "./components/expert-application/methods/AudioApplication";
+import { Link, useNavigate } from "react-router-dom";
+import MethodSelector from "./MethodSelector";
+import ChatApplication from "./methods/ChatApplication";
+import PortfolioApplication from "./methods/PortfolioApplication";
+import VideoApplication from "./methods/VideoApplication";
+import AudioApplication from "./methods/AudioApplication";
 
 /**
  * AI Expert Application main container
- * Manages the overall application flow and method selection
+ * This component manages the overall application flow and state
  */
 const AIExpertApplication = () => {
-  // State to track which application method is selected
   const [selectedMethod, setSelectedMethod] = useState(null);
   const navigate = useNavigate();
 
   // Handle back navigation
   const handleBack = () => {
     if (selectedMethod) {
-      // If a method is selected, go back to method selection
       setSelectedMethod(null);
     } else {
-      // If at method selection, go back to home
       navigate("/");
     }
   };
 
-  // Render the selected application method or method selector
-  const renderContent = () => {
+  // Render the selected application method
+  const renderApplicationMethod = () => {
     if (!selectedMethod) {
       return <MethodSelector onSelectMethod={setSelectedMethod} />;
     }
 
-    // Render the selected method component
+    // Render the appropriate application method component
     switch (selectedMethod) {
       case "chat":
-        return <ChatApplication />;
+        return <ChatApplication onBack={() => setSelectedMethod(null)} />;
       case "portfolio":
-        return <PortfolioApplication />;
+        return <PortfolioApplication onBack={() => setSelectedMethod(null)} />;
       case "video":
-        return <VideoApplication />;
+        return <VideoApplication onBack={() => setSelectedMethod(null)} />;
       case "audio":
-        return <AudioApplication />;
+        return <AudioApplication onBack={() => setSelectedMethod(null)} />;
       default:
         return <MethodSelector onSelectMethod={setSelectedMethod} />;
     }
@@ -60,13 +55,13 @@ const AIExpertApplication = () => {
             className="flex items-center text-gray-600 hover:text-gray-900"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
-            {selectedMethod ? "Back to Application Methods" : "Back to Home"}
+            {selectedMethod ? "Back to Methods" : "Back to Home"}
           </button>
         </div>
       </div>
 
-      {/* Main content area */}
-      <div className="container mx-auto px-4">{renderContent()}</div>
+      {/* Main application area */}
+      <div className="container mx-auto px-4">{renderApplicationMethod()}</div>
     </div>
   );
 };
