@@ -19,22 +19,48 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+import JoinAsExpert from "./JoinAsExpert";
+import AIExpertApplication from "./AIExpertApplication";
 
 export default function NerdRezult() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/join-as-expert" element={<AIExpertApplication />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("clients");
+  const navigate = useNavigate();
 
+  const handleJoinAsExpert = () => {
+    navigate("/join-as-expert");
+  };
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Navigation */}
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Cpu className="h-8 w-8 text-indigo-600" />
-            <h1 className="text-2xl font-bold text-gray-900">
-              Nerd<span className="text-indigo-600">Rezult</span>
-            </h1>
-          </div>
+          <Link to="/">
+            <div className="flex items-center space-x-2">
+              <Cpu className="h-8 w-8 text-indigo-600" />
+              <h1 className="text-2xl font-bold text-gray-900">
+                Nerd<span className="text-indigo-600">Rezult</span>
+              </h1>
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -50,12 +76,12 @@ export default function NerdRezult() {
             >
               For Businesses
             </a>
-            <a
-              href="#"
+            <Link
+              to="/join-as-expert"
               className="text-gray-700 hover:text-indigo-600 font-medium"
             >
               For AI Experts
-            </a>
+            </Link>
             <a
               href="#"
               className="text-gray-700 hover:text-indigo-600 font-medium"
@@ -100,12 +126,12 @@ export default function NerdRezult() {
               >
                 For Businesses
               </a>
-              <a
-                href="#"
+              <Link
+                to="/join-as-expert"
                 className="text-gray-700 hover:text-indigo-600 font-medium py-2"
               >
                 For AI Experts
-              </a>
+              </Link>
               <a
                 href="#"
                 className="text-gray-700 hover:text-indigo-600 font-medium py-2"
@@ -143,7 +169,10 @@ export default function NerdRezult() {
                 <button className="bg-white text-indigo-700 px-6 py-3 rounded-md font-semibold shadow-lg hover:bg-gray-100">
                   Find AI Talent
                 </button>
-                <button className="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:bg-opacity-10">
+                <button
+                  onClick={handleJoinAsExpert}
+                  className="border border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white hover:bg-opacity-10"
+                >
                   Join As Expert
                 </button>
               </div>
@@ -1104,9 +1133,12 @@ export default function NerdRezult() {
               <button className="bg-white text-indigo-700 px-8 py-3 rounded-md font-semibold shadow-lg hover:bg-gray-100">
                 Find AI Talent
               </button>
-              <button className="border border-white text-white px-8 py-3 rounded-md font-semibold hover:bg-white hover:bg-opacity-10">
+              <Link
+                to="/join-as-expert"
+                className="border border-white text-white px-8 py-3 rounded-md font-semibold hover:bg-white hover:bg-opacity-10"
+              >
                 Join As Expert
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -1193,9 +1225,12 @@ export default function NerdRezult() {
               <h4 className="text-lg font-semibold mb-6">For AI Experts</h4>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white">
+                  <Link
+                    to="/join-as-expert"
+                    className="text-gray-400 hover:text-white"
+                  >
                     Join Our Network
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" className="text-gray-400 hover:text-white">
