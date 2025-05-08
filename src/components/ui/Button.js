@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Button({
   children,
@@ -6,6 +7,8 @@ function Button({
   size = "md",
   className = "",
   icon,
+  to, // React Router path
+  href, // External URL
   ...props
 }) {
   const baseStyles = "rounded-md font-medium transition-colors";
@@ -26,12 +29,35 @@ function Button({
 
   const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
+  const content = (
+    <div className="flex items-center justify-center">
+      {children}
+      {icon && <span className="ml-2">{icon}</span>}
+    </div>
+  );
+
+  // If it's a React Router link
+  if (to) {
+    return (
+      <Link to={to} className={classes} {...props}>
+        {content}
+      </Link>
+    );
+  }
+
+  // If it's an external link
+  if (href) {
+    return (
+      <a href={href} className={classes} {...props}>
+        {content}
+      </a>
+    );
+  }
+
+  // Default: a regular button
   return (
     <button className={classes} {...props}>
-      <div className="flex items-center justify-center">
-        {children}
-        {icon && <span className="ml-2">{icon}</span>}
-      </div>
+      {content}
     </button>
   );
 }

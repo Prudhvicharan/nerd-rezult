@@ -6,3 +6,5 @@ export { default as IndustriesGrid } from "./IndustriesGrid";
 export { default as PricingPlans } from "./PricingPlans";
 export { default as Testimonials } from "./Testimonials";
 export { default as CTASection } from "./CTASection";
+export { default as WhyJoinSection } from "./WhyJoinSection";
+export { default as ExpertTestimonialsSection } from "./ExpertTestimonialsSection";

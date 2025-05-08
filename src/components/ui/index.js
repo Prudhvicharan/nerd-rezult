@@ -5,3 +5,6 @@ export { default as Tabs } from "./Tabs";
 export { default as IndustryCard } from "./IndustryCard";
 export { default as PricingCard } from "./PricingCard";
 export { default as TestimonialCard } from "./TestimonialCard";
+export { default as CheckboxCard } from "./CheckboxCard";
+export { default as FormSection } from "./FormSection";
+export { default as ProcessStepVertical } from "./ProcessStepVertical";

@@ -15,10 +15,10 @@ function CTASection() {
             uncertain results.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button variant="tertiary" size="lg">
+            <Button to="/find-ai-talent" variant="tertiary" size="lg">
               Find AI Talent
             </Button>
-            <Button variant="secondary" size="lg">
+            <Button to="/join-as-expert" variant="secondary" size="lg">
               Join As Expert
             </Button>
           </div>

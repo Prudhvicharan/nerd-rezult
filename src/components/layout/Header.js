@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Cpu, Menu, X } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 
@@ -13,47 +14,52 @@ function Header() {
     <header className="bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-2">
-          <Cpu className="h-8 w-8 text-indigo-600" />
-          <h1 className="text-2xl font-bold text-gray-900">
-            Nerd<span className="text-indigo-600">Rezult</span>
-          </h1>
+          <Link to="/" className="flex items-center space-x-2">
+            <Cpu className="h-8 w-8 text-indigo-600" />
+            <h1 className="text-2xl font-bold text-gray-900">
+              Nerd<span className="text-indigo-600">Rezult</span>
+            </h1>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a
-            href="#"
+          <Link
+            to="/how-it-works"
             className="text-gray-700 hover:text-indigo-600 font-medium"
           >
             How It Works
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/for-businesses"
             className="text-gray-700 hover:text-indigo-600 font-medium"
           >
             For Businesses
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/join-as-expert"
             className="text-gray-700 hover:text-indigo-600 font-medium"
           >
             For AI Experts
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/success-stories"
             className="text-gray-700 hover:text-indigo-600 font-medium"
           >
             Success Stories
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/pricing"
             className="text-gray-700 hover:text-indigo-600 font-medium"
           >
             Pricing
-          </a>
-          <button className="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 shadow-sm">
+          </Link>
+          <Link
+            to="/find-ai-talent"
+            className="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 shadow-sm inline-block"
+          >
             Get Started
-          </button>
+          </Link>
         </nav>
 
         {/* Mobile menu button */}
