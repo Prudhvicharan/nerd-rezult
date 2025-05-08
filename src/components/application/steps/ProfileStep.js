@@ -144,11 +144,11 @@ function ProfileStep({ formData, updateFormData }) {
           />
           <span className="text-sm text-gray-700">
             I agree to the{" "}
-            <a href="#" className="text-indigo-600 hover:underline">
+            <a href="/terms" className="text-indigo-600 hover:underline">
               Terms of Service
             </a>{" "}
             and{" "}
-            <a href="#" className="text-indigo-600 hover:underline">
+            <a href="/privacy" className="text-indigo-600 hover:underline">
               Privacy Policy
             </a>
             . I understand that NerdRezult will process my data to provide

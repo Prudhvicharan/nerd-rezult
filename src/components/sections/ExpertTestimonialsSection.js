@@ -61,7 +61,7 @@ function ExpertTestimonialsSection() {
 
         <div className="text-center mt-12">
           <a
-            href="#"
+            href="/success-stories"
             className="text-indigo-600 font-medium inline-flex items-center"
           >
             Read more expert stories
